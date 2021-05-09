@@ -369,7 +369,25 @@ class WarehouseController:
 
         #rclpy.spin(self.action_client2)
 
+# Ran out of time when we figured out an action server was needed
+"""        
+class FollowTargetActionServer(Node):
 
+    def __init__(self, robot_name):
+        super().__init__(robot_name + '_action_server')
+        self._follow_action_server = ActionServer(self, FollowTargets, '/' + robot_name + '/FollowTargets', self.execute_callback_target)
+        self._path_2_pose_action_server = ActionServer(self, ComputePathToPose, '/' + robot_name + '/ComputePathToPose', self.execute_callback_compute)
+        
+    def execute_callback_target(self, goal_handle_target):
+        self.get_logger().info('Executing goal...')
+        result = FollowTargets.Result()
+        return result
+    
+    def execute_callback(self, goal_handle_target):
+        self.get_logger().info('Calculating path...')
+        result = ComputePathtoPose.Result()
+        return result
+"""
 
 class FollowTargetActionClient(Node):
 
